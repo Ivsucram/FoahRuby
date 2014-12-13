@@ -5,7 +5,12 @@ class ApplicationController < ActionController::Base
 
 
   def get_user
-  	mobile_number = params[:number].sub("+","")
+  	mobile_number = params[:number]
+  	if mobile_number.nil?
+  		response = Error::NULL_MOBILE_NUMBER
+  		response["success"] = false
+  		render :json => response.to_json and return
+  	end
 	@user = User.find_by_number(mobile_number) rescue nil
   end
 end

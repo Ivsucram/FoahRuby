@@ -8,4 +8,9 @@ class Error
 		"code" => 2,
 		"message" => "Phone not activated."
 	}
+
+	NULL_MOBILE_NUMBER = {
+		"code" => 3,
+		"message" => "Mobile number cannot be empty."
+	}
 end
