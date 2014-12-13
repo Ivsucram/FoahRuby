@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem "execjs"
+gem "therubyracer"
+
 gem 'mongoid', github: "mongoid/mongoid"
 gem 'bson_ext'
 
