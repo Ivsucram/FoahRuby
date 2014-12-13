@@ -49,12 +49,20 @@ class UserController < ApplicationController
 
 	# this function registers the user and also register new device
 	def register
-		mobile = params[:number].sub("+","")
-		@user = User.new
-		@user.mobile_number = mobile
-		@user.save
-		register_new_phone(params[:uid])
-		render :json => {"success" => true}.to_json
+		mobile = params[:number]
+		if !mobile.nil?
+			mobile = mobile.sub("+","")
+			@user = User.new
+			@user.mobile_number = mobile
+			@user.save
+			register_new_phone(params[:uid])
+			response = {"success" => true}
+		else
+			response = Error::NULL_MOBILE_NUMBER
+  			response["success"] = false
+		end
+		
+		render :json => response.to_json
 	end
 
 	# changes or sets user's  nick name

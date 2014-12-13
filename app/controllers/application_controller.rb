@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   		response["success"] = false
   		render :json => response.to_json and return
   	end
+  	mobile = mobile.sub("+","")
 	@user = User.find_by_number(mobile_number) rescue nil
   end
 end
