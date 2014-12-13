@@ -7,4 +7,8 @@ Rails.application.routes.draw do
     post "/register" => "user#register"
     post "/name" => "user#register_name"
   end
+
+  scope :posts do
+    get "/public" => "posts#get_public_posts"
+  end
 end
