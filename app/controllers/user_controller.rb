@@ -51,7 +51,7 @@ class UserController < ApplicationController
 	def register
 		mobile = params[:number]
 		if !mobile.nil?
-			mobile = mobile.sub("+","")
+			mobile = mobile.sub("+","").strip
 			@user = User.new
 			@user.mobile_number = mobile
 			@user.save
