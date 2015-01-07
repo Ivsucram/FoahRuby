@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   scope :posts do
     get "/public" => "posts#get_public_posts"
-    get "/create" => "posts#create_post"
+    post "/create" => "posts#create_post"
   end
 end
