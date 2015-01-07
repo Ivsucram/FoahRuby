@@ -6,6 +6,7 @@ class User
   	field :name
 
   	has_many :cell_phones, :dependent => :destroy
+  	has_many :posts, :dependent => :destroy
   	validates :mobile_number, uniqueness: true
 
   	def self.find_by_number(number)
